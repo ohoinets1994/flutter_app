@@ -1,16 +1,18 @@
 # flutter_app
 
-A new Flutter application.
+Hey there flutter application.
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+The application allows user to generate random colors by tapping on the screen,
+also displays the hex code of the current color.
 
-A few resources to get you started if this is your first Flutter project:
+The app consists of two screens Screen1 and Screen2:
+- Screen1 uses a CustomNumberGenerator to generate random color.
+- Screen2 uses a Random (dart:math) to generate random color.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Both screens have a button that sets the default color value.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The application implements the architectural pattern Provider (Scoped Model),
+as it allows you to pull out business logic from view (widget) and gives you the opportunity
+to reuse this logic in different modules of the system.
