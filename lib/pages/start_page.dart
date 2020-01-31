@@ -20,8 +20,10 @@ class _StartPage extends State<StartPage> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Scrin1')),
-          BottomNavigationBarItem(icon: Icon(Icons.android), title: Text('Scrin2'))
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), title: Text('Screen1')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.android), title: Text('Screen2'))
         ],
         currentIndex: _selectedIndex,
         onTap: (index) {

@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hey There App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.orange,
-        accentColor: Colors.orangeAccent
-      ),
+          primarySwatch: Colors.blue,
+          primaryColor: Colors.orange,
+          accentColor: Colors.orangeAccent),
       home: StartPage(),
     );
   }

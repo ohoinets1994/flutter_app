@@ -1,17 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/common/custom_number_generator.dart';
+import 'package:sprintf/sprintf.dart';
 
-class BaseModel extends ChangeNotifier {
-  int _counter = 0;
+abstract class BaseModel extends ChangeNotifier {
   Color _color = Colors.white;
-
-  int get counter => _counter;
-
-  set counter(int value) {
-    _counter = value;
-    notifyListeners();
-  }
+  Color _textColor = Colors.black;
+  String _colorHex = "#ffffff";
 
   Color get color => _color;
 
@@ -20,25 +14,35 @@ class BaseModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  Color get textColor => _textColor;
+
+  set textColor(Color value) {
+    _textColor = value;
+    notifyListeners();
+  }
+
+  String get colorHex => _colorHex;
+
+  set colorHex(String value) {
+    _colorHex = value;
+    notifyListeners();
+  }
+
   generateColor() {
-    color = _colorGenerator();
-    counter++;
+    color = generateRandomColor();
+    _getColorHex(color);
   }
 
   nullify() {
     color = Colors.white;
-    counter = 0;
+    textColor = Colors.black;
+    colorHex = "#ffffff";
   }
 
-  Color _colorGenerator() {
-    CustomNumberGenerator random = new CustomNumberGenerator(255);
+  Color generateRandomColor();
 
-    int a = random.nextInt();
-    int r = random.nextInt();
-    int g = random.nextInt();
-    int b = random.nextInt();
-    Color color = new Color.fromARGB(a, r, g, b);
-
-    return color;
+  _getColorHex(Color color) {
+    colorHex = sprintf("#%02X%02X%02X", [color.red, color.green, color.blue]);
+    textColor = color.computeLuminance() > 0.2 ? Colors.black : Colors.white;
   }
 }

@@ -22,7 +22,8 @@ class _LibRandomState extends State<LibRandom> {
   Widget build(BuildContext context) {
     final state = Provider.of<SecondPageModel>(context);
     final backgroundColor = state.color;
-    final counter = state.counter;
+    final colorHex = state.colorHex;
+    final textColor = state.textColor;
 
     return ChangeNotifierProvider(
       builder: (context) => SecondPageModel(),
@@ -36,8 +37,10 @@ class _LibRandomState extends State<LibRandom> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Hey there', style: TextStyle(fontSize: 15)),
-                Text('$counter', style: TextStyle(fontSize: 30)),
+                Text('Hey there',
+                    style: TextStyle(fontSize: 20, color: textColor)),
+                Text('$colorHex',
+                    style: TextStyle(fontSize: 30, color: textColor)),
                 SizedBox(height: 20),
                 FloatingActionButton.extended(
                   onPressed: _nullifyState,
